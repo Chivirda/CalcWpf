@@ -48,8 +48,21 @@
 
         <Button Grid.Row="2" Grid.Column="3" x:Name="btn_div">/</Button>
         <Button Grid.Row="3" Grid.Column="3" x:Name="btn_mult">*</Button>
+        <Button Grid.Row="4" Grid.Column="3" x:Name="btn_sub">-</Button>
+        <Button Grid.Row="5" Grid.Column="3" x:Name="btn_add">+</Button>
+        <Button Grid.Row="6" Grid.Column="3" x:Name="btn_eq">=</Button>
 
+        <Button Grid.Row="6" Grid.Column="2" x:Name="btn_comma">,</Button>
+        <Button Grid.Row="6" Grid.Column="0" x:Name="btn_plusminus">+/-</Button>
 
+        <!-- Clear buttons -->
+        <Button Grid.Row="2" Grid.Column="0" x:Name="btn_C">C</Button>
+        <Button Grid.Row="2" Grid.Column="1" x:Name="btn_CE">CE</Button>
+        <Button Grid.Row="2" Grid.Column="2" x:Name="btn_backspace" Content="&#10594;"></Button>
 
+        <!-- Text box -->
+        <TextBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" TextAlignment="Right"
+                 VerticalAlignment="Bottom" FontSize="42">0</TextBox>
+        
     </Grid>
 </Window>
