@@ -104,16 +104,29 @@ namespace CalcWpf
 
         private void btn_backspace_Click(object sender, RoutedEventArgs e)
         {
+            txtValue.Text = DropLastChar(txtValue.Text);
             if (operation == "")
             {
-                num1 = (int)num1 / 10;
-                txtValue.Text = num1.ToString();
+                num1 = Double.Parse(txtValue.Text);
             }
             else
             {
-                num2 = (int)num2 / 10;
-                txtValue.Text = num2.ToString();
+                num2 = Double.Parse(txtValue.Text);
             }
+        }
+
+        private string DropLastChar(string text)
+        {
+            if (text.Length == 1)
+                text = "0";
+            else
+            {
+                text = text.Remove(text.Length - 1, 1);
+                if (text[text.Length - 1] == ',')
+                    text = text.Remove(text.Length - 1, 1);
+            }
+
+            return text;
         }
 
         private void btn_plusminus_Click(object sender, RoutedEventArgs e)
