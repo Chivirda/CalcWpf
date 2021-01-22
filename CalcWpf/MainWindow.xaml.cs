@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -20,18 +21,21 @@ namespace CalcWpf
         private void btn_num_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
-            string str = button.Content.ToString();
-            int num = Int32.Parse(str);
+            string num = button.Content.ToString();
+
+            if (txtValue.Text == "0")
+                txtValue.Text = num;
+            else
+                txtValue.Text += num;
 
             if (operation == "")
             {
-                num1 = num1 * 10 + num;
-                txtValue.Text = num1.ToString();
-            } 
+                num1 = Double.Parse(txtValue.Text);
+
+            }
             else
             {
-                num2 = num2 * 10 + num;
-                txtValue.Text = num2.ToString();
+                num2 = Double.Parse(txtValue.Text);
             }
         }
 
@@ -140,6 +144,16 @@ namespace CalcWpf
             {
                 num2 *= -1;
                 txtValue.Text = num2.ToString();
+            }
+        }
+
+        private void btn_comma_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtValue.Text.Contains(','))
+                return;
+            else
+            {
+                txtValue.Text += ',';
             }
         }
     }
